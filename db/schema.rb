@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_03_14_021354) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.string "sex"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_021354) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.string "title"
     t.string "date_of_visit"
     t.string "doctor"
